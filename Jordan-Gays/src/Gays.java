@@ -3,8 +3,35 @@ public class Gays {
     public static Drob Ras(Drob P, Drob a, Drob b, Drob Gla){
         return (P.vichet((a.umnoz(b)).delen(Gla)));
     }
+    public static Drob Sokr(Drob A){
+        int mn=gcd(A.getChis(),A.getZnam());
+     //   System.out.println(mn);
+        A.setChis(A.getChis() / mn);
+        A.setZnamen(A.getZnam() / mn);
+        return A;
+    }
 
-    static int n = 5, m =6;
+    public static int gcd(int a, int b){
+        if(b==0) return a;
+        return gcd(b,a%b);
+    }
+    /*public static int nod(int x,int y){
+        int tmp= x%y ;
+    x=y;
+    y=tmp;
+        if(tmp>0){
+            return nod(x,y);
+        }
+        else {
+            return x;
+        }
+    }
+    static int nok(int x,int y){
+        return x*(y / nod(x,y));
+    }*/
+
+
+    static int n = 4, m =6;
     static Drob[][] M = new Drob[n][m];
     static Drob[][] Pred = new Drob[n][m];
 
@@ -17,11 +44,21 @@ public class Gays {
 
 
         int[][] Matrix = {
-                {3,1,5,-2,3,35},
-                {4,3,-7,5,6,54},
-                {-7,5,4,1,-1,-96},
-                {1,4,1,-3,-10,-71},
-                {6,-9,-8,-8,-2,59}
+           /*laba 9*/  /*   {8,2,-8,-10,-3,142},
+                {6,-1,11,4,11,-55},
+                {13,-9,4,3,10,-49},
+                {-9,4,14,15,13,-213},
+                {9,6,8,4,-7,152}*/
+
+            /*3 dz*/    /*{1,4,0,-1,5},
+                {2,-3,1,1,3},
+                {1,0,2,-1,3},
+                {0,2,-3,2,3}*/
+         /*4 dz*/       {2,-1,1,2,3,2},
+                {6,-3,2,4,5,3},
+                {6,-3,4,8,13,9},
+                {4,-2,1,1,2,1}
+
         };
 
 
@@ -79,7 +116,7 @@ boolean check = false;
                         break;
                     }
                 }
-if(check==true) continue;
+if(check) continue;
             /*for(int t=0; t<n; t++){
                 for (int z=0; z<m; z++){
                     System.out.print(Pred[t][z].getChis()+"/"+Pred[t][z].getZnam()+" ");
@@ -115,6 +152,8 @@ if(check==true) continue;
 
             for(int t=0; t<n; t++) {
                 for (int z = 0; z < m; z++) {
+                    if (Pred[t][z].getZnam()==0 | Pred[t][z].getChis() ==0);
+                    else Pred[t][z] = Sokr(Pred[t][z]);
                     M[t][z].setChis(Pred[t][z].getChis());
                     M[t][z].setZnamen(Pred[t][z].getZnam());
                 }
