@@ -1,3 +1,5 @@
+import java.sql.SQLOutput;
+
 public class Gays {
 
     public static Drob Ras(Drob P, Drob a, Drob b, Drob Gla){
@@ -25,6 +27,59 @@ public class Gays {
         }
     }
 
+    public static void Otvet(){
+        boolean ch=true;
+        boolean che=true;
+        int cho=0;
+
+        for(int i=0; i<n; i++){
+            for(int j=0; j<m-1 & che==true & ch==true; j++){
+                if(M[i][i].getChis()==1 & M[i][i].getZnam()==1);
+                else ch=false;
+                if(i!=j & M[i][j].getChis()==0);
+                else che=false;
+            }
+            if(ch==false | che==false) break;
+        }
+
+        if(ch==true & che==true){
+            ChorOtv();
+        }
+        else{
+            for(int i=0; i<n; i++) {
+                for (int j = 0; j < m - 1; j++) {
+                    if(M[i][j].getChis()==0){
+                        cho++;
+                    }
+                }
+                if(cho==m-1 & M[i][m-1].getChis()!=0){
+                    System.out.println("Result is not!");
+                    return;
+                }
+                else cho=0;
+            }
+
+            NeChorOtv();
+        }
+    }
+
+    public static void ChorOtv(){
+        for(int i=0; i<n; i++) {
+            System.out.println("X" + (i+1) + " = " + M[i][m-1].getChis() + "/" + M[i][m-1].getZnam());
+        }
+    }
+
+    public static void NeChorOtv(){
+        for(int i=0; i<n; i++) {
+            System.out.print("X" + (i+1) + " = " + M[i][m-1].getChis() + "/" + M[i][m-1].getZnam());
+            for(int j=0; j<m-1; j++){
+                if(M[i][j].getChis()!=0 & i!=j){
+                    System.out.print(" - " + M[i][j].getChis() + "/" + M[i][j].getZnam() + " * " + "X" + (j+1));
+                }
+            }
+            System.out.println();
+        }
+    }
 
     public static void Glav(){
         Drob GlavEl = new Drob();
@@ -40,7 +95,6 @@ public class Gays {
                     GlavE = e;
                     GlavT = t;
                     check = true;
-                    System.out.println("e= " + GlavE + " t= " + GlavT);
                     System.out.println(GlavEl.getChis() + "/" + GlavEl.getZnam());
                 }
             }
@@ -53,6 +107,7 @@ public class Gays {
 
             check = false;
         }
+        Otvet();
     }
 
     public static void Nulling(int e, int t, Drob El){
