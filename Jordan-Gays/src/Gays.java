@@ -1,19 +1,27 @@
-import java.sql.SQLOutput;
-
 public class Gays {
 
     public static Drob Ras(Drob P, Drob a, Drob b, Drob Gla){
-        return (P.vichet((a.umnoz(b)).delen(Gla)));
+        Drob um, de, vi;
+        um = a.umnoz(b);
+        um = Sokr(um);
+
+        de = um.delen(Gla);
+        de = Sokr(de);
+
+        vi = P.vichet(de);
+        vi = Sokr(vi);
+
+        return vi;
     }
     public static Drob Sokr(Drob A){
-        int mn=gcd(A.getChis(),A.getZnam());
+        long mn=gcd(A.getChis(),A.getZnam());
         if(mn == 0) return A;
         A.setChis(A.getChis() / mn);
         A.setZnamen(A.getZnam() / mn);
         return A;
     }
 
-    public static int gcd(int a, int b){
+    public static long gcd(long a, long b){
         if(b==0) return a;
         return gcd(b,a%b);
     }
@@ -150,6 +158,10 @@ public class Gays {
             for(int j=0; j<m; j++){
                 if(Pred[i][j].getChis()==0){
                     Pred[i][j].setZnamen(0);
+                }
+                if(Pred[i][j].getZnam()<0){
+                    Pred[i][j].setChis(Pred[i][j].getChis()*-1);
+                    Pred[i][j].setZnamen(Pred[i][j].getZnam()*-1);
                 }
                 M[i][j].setChis(Pred[i][j].getChis());
                 M[i][j].setZnamen(Pred[i][j].getZnam());

@@ -1,21 +1,21 @@
 public class Drob {
-    private int chislitel;
-    private int znamienatel;
+    private long chislitel;
+    private long znamienatel;
 
     public Drob(){
 
     }
 
-    void setChis(int ch){
+    void setChis(long ch){
         chislitel = ch;
     }
-    void setZnamen(int zn){
+    void setZnamen(long zn){
         znamienatel = zn;
     }
-    int getChis(){
+    long getChis(){
         return chislitel;
     }
-    int getZnam(){
+    long getZnam(){
         return znamienatel;
     }
 
