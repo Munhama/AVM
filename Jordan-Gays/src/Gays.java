@@ -43,6 +43,7 @@ public class Gays {
         }
 
         if(ch==true & che==true){
+            System.out.println();
             ChorOtv();
         }
         else{
@@ -59,6 +60,7 @@ public class Gays {
                 else cho=0;
             }
 
+            System.out.println();
             NeChorOtv();
         }
     }
@@ -70,11 +72,18 @@ public class Gays {
     }
 
     public static void NeChorOtv(){
+        boolean ch;
         for(int i=0; i<n; i++) {
-            System.out.print("X" + (i+1) + " = " + M[i][m-1].getChis() + "/" + M[i][m-1].getZnam());
-            for(int j=0; j<m-1; j++){
-                if(M[i][j].getChis()!=0 & i!=j){
-                    System.out.print(" - " + M[i][j].getChis() + "/" + M[i][j].getZnam() + " * " + "X" + (j+1));
+            ch=true;
+            for(int j=0; j<m-1 & ch==true; j++){
+                if(M[i][j].getChis()==1 & M[i][j].getZnam()==1) {
+                    System.out.print("X" + (j+1) + " = " + M[i][m-1].getChis() + "/" + M[i][m-1].getZnam());
+                    for (int z = j; z < m - 1; z++) {
+                        if(M[i][z].getChis()!=0 & z!=j){
+                            System.out.print(" - " + M[i][z].getChis() + "/" + M[i][z].getZnam() + " * " + "X" + (z+1));
+                            ch=false;
+                        }
+                    }
                 }
             }
             System.out.println();
@@ -148,7 +157,7 @@ public class Gays {
         }
     }
 
-    static int n = 5, m =6; //m-столбец!!!
+    static int n = 3, m =5; //m-столбец!!!
     static Drob[][] M = new Drob[n][m];
     static Drob[][] Pred = new Drob[n][m];
 
@@ -156,11 +165,11 @@ public class Gays {
         Drob a = new Drob();
 
         int[][] Matrix = {
-                /*laba 9*/     {8,2,-8,-10,-3,142},
+                /*laba 9*/     /*{8,2,-8,-10,-3,142},
                 {6,-1,11,4,11,-55},
                 {13,-9,4,3,10,-49},
                 {-9,4,14,15,13,-213},
-                {9,6,8,4,-7,152}
+                {9,6,8,4,-7,152}*/
 
                 /*3 dz*/        /*{1,4,0,-1,5},
                 {2,-3,1,1,3},
@@ -175,6 +184,10 @@ public class Gays {
                 /*1 dz*/       /*{3,2,5,4,3},
                 {1,-1,-1,-4,-2},
                 {4,1,4,0,2}*/
+
+                /*2 dz*/        {4,-3,-2,1,-2},
+                {3,-1,-2,0,1},
+                {2,1,-2,-1,4}
 
         };
 
